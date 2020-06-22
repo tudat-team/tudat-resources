@@ -95,10 +95,12 @@ target_include_directories(test_paths PUBLIC
         $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
         $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/include>
         $<INSTALL_INTERFACE:include>)
+
+enable_testing()
 add_test(test_paths bin/test_paths)
 
-install(DIRECTORY include/ DESTINATION "${INSTALL_INCLUDE_DIR}")
-install(DIRECTORY resource/ DESTINATION "${INSTALL_DATA_DIR}")
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/ DESTINATION "${INSTALL_INCLUDE_DIR}")
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/resource/ DESTINATION "${INSTALL_DATA_DIR}")
 
 # CONFIGURE
 configure_file( # Really dirty trick, and should be removed.
