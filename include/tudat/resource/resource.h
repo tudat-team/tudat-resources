@@ -18,42 +18,42 @@
 namespace fs = boost::filesystem;
 
 
-namespace tudat {
-    namespace paths {
+namespace tudat{
+        namespace paths {
 
-        fs::path get_resources_path() {
-            return fs::path(RESOURCES_FOLDER);
+            static inline fs::path get_resources_path() {
+                return fs::path(RESOURCES_FOLDER);
+            }
+
+            static inline fs::path get_atmosphere_tables_path() {
+                return (get_resources_path() += fs::path(ATMOSPHERE_TABLES));
+            }
+
+            static inline fs::path get_earth_orientation_path() {
+                return (get_resources_path() += fs::path(EARTH_ORIENTATION));
+            }
+
+            static inline fs::path get_ephemeris_path() {
+                return (get_resources_path() += fs::path(EPHEMERIS));
+            }
+
+            static inline fs::path get_gravity_models_path() {
+                return (get_resources_path() += fs::path(GRAVITY_MODELS));
+            }
+
+            static inline fs::path get_quadrature_path() {
+                return (get_resources_path() += fs::path(QUADRATURE));
+            }
+
+            static inline fs::path get_space_weather_path() {
+                return (get_resources_path() += fs::path(SPACE_WEATHER));
+            }
+
+            static inline fs::path get_spice_kernels_path() {
+                return (get_resources_path() += fs::path(SPICE_KERNELS));
+            }
+
         }
-
-        fs::path get_atmosphere_tables_path() {
-            return (get_resources_path() += fs::path(ATMOSPHERE_TABLES));
-        }
-
-        static inline fs::path get_earth_orientation_path() {
-            return (get_resources_path() += fs::path(EARTH_ORIENTATION));
-        }
-
-        static inline fs::path get_ephemeris_path() {
-            return (get_resources_path() += fs::path(EPHEMERIS));
-        }
-
-        static inline fs::path get_gravity_models_path() {
-            return (get_resources_path() += fs::path(GRAVITY_MODELS));
-        }
-
-        static inline fs::path get_quadrature_path() {
-            return (get_resources_path() += fs::path(QUADRATURE));
-        }
-
-        static inline fs::path get_space_weather_path() {
-            return (get_resources_path() += fs::path(SPACE_WEATHER));
-        }
-
-        static inline fs::path get_spice_kernels_path() {
-            return (get_resources_path() += fs::path(SPICE_KERNELS));
-        }
-
-    }
 }
 
 #endif //TUDATRESOURCES_RESOURCE_H
