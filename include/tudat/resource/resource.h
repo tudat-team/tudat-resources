@@ -3,49 +3,54 @@
 
 #include <tudat/resource/resource.h>
 #include <tudat/resource/config.hpp>
+#include <boost/filesystem.hpp>
 
-#define RESOURCES_FOLDER std::string(Tudat_RESOURCE_DIR)
-#define ATMOSPHERE_TABLES_RELATIVE_TO_RESOURCES "/atmosphere_tables/"
-#define EARTH_ORIENTATION_RELATIVE_TO_RESOURCES "/earth_orientation/"
-#define EPHEMERIS_RELATIVE_TO_RESOURCES "/ephemeris/"
-#define GRAVITY_MODELS_RELATIVE_TO_RESOURCES "/gravity_models/"
-#define QUADRATURE_RELATIVE_TO_RESOURCES "/quadrature/"
-#define SPACE_WEATHER_RELATIVE_TO_RESOURCES "/space_weather/"
-#define SPICE_KERNELS_RELATIVE_TO_RESOURCES "/spice_kernels/"
+#define RESOURCES_FOLDER Tudat_RESOURCE_DIR
+#define ATMOSPHERE_TABLES "/atmosphere_tables"
+#define EARTH_ORIENTATION "/earth_orientation"
+#define EPHEMERIS "/ephemeris"
+#define GRAVITY_MODELS "/gravity_models"
+#define QUADRATURE "/quadrature"
+#define SPACE_WEATHER "/space_weather"
+#define SPICE_KERNELS "/spice_kernels"
+
+
+namespace fs = boost::filesystem;
+
 
 namespace tudat {
     namespace paths {
 
-        static inline std::string get_resources_path() {
-            return RESOURCES_FOLDER + "/";
+        fs::path get_resources_path() {
+            return fs::path(RESOURCES_FOLDER);
         }
 
-        static inline std::string get_atmosphere_tables_path() {
-            return RESOURCES_FOLDER + ATMOSPHERE_TABLES_RELATIVE_TO_RESOURCES;
+        fs::path get_atmosphere_tables_path() {
+            return (get_resources_path() += fs::path(ATMOSPHERE_TABLES));
         }
 
-        static inline std::string get_earth_orientation_path() {
-            return RESOURCES_FOLDER + EARTH_ORIENTATION_RELATIVE_TO_RESOURCES;
+        static inline fs::path get_earth_orientation_path() {
+            return (get_resources_path() += fs::path(EARTH_ORIENTATION));
         }
 
-        static inline std::string get_ephemeris_path() {
-            return RESOURCES_FOLDER + EPHEMERIS_RELATIVE_TO_RESOURCES;
+        static inline fs::path get_ephemeris_path() {
+            return (get_resources_path() += fs::path(EPHEMERIS));
         }
 
-        static inline std::string get_gravity_models_path() {
-            return RESOURCES_FOLDER + GRAVITY_MODELS_RELATIVE_TO_RESOURCES;
+        static inline fs::path get_gravity_models_path() {
+            return (get_resources_path() += fs::path(GRAVITY_MODELS));
         }
 
-        static inline std::string get_quadrature_path() {
-            return RESOURCES_FOLDER + QUADRATURE_RELATIVE_TO_RESOURCES;
+        static inline fs::path get_quadrature_path() {
+            return (get_resources_path() += fs::path(QUADRATURE));
         }
 
-        static inline std::string get_space_weather_path() {
-            return RESOURCES_FOLDER + SPACE_WEATHER_RELATIVE_TO_RESOURCES;
+        static inline fs::path get_space_weather_path() {
+            return (get_resources_path() += fs::path(SPACE_WEATHER));
         }
 
-        static inline std::string get_spice_kernels_path() {
-            return RESOURCES_FOLDER + SPICE_KERNELS_RELATIVE_TO_RESOURCES;
+        static inline fs::path get_spice_kernels_path() {
+            return (get_resources_path() += fs::path(SPICE_KERNELS));
         }
 
     }

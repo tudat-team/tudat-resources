@@ -81,6 +81,8 @@ endforeach ()
 #        RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/bin"
 #        )
 
+find_package(Boost COMPONENTS REQUIRED filesystem)
+
 add_executable(test_paths test/test_paths.cpp)
 
 set_target_properties(test_paths
@@ -94,10 +96,12 @@ set_target_properties(test_paths
 target_include_directories(test_paths PUBLIC
         $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
         $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/include>
+        $<BUILD_INTERFACE:${Boost_INCLUDE_DIRS}>
         $<INSTALL_INTERFACE:include>)
 
 enable_testing()
 add_test(test_paths bin/test_paths)
+target_link_libraries(test_paths PUBLIC ${Boost_LIBRARIES})
 
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/ DESTINATION "${INSTALL_INCLUDE_DIR}")
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/resource/ DESTINATION "${INSTALL_DATA_DIR}")
