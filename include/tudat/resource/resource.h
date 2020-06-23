@@ -1,7 +1,6 @@
 #ifndef TUDATRESOURCES_RESOURCE_H
 #define TUDATRESOURCES_RESOURCE_H
 
-#include <tudat/resource/resource.h>
 #include <tudat/resource/config.hpp>
 #include <boost/filesystem.hpp>
 
