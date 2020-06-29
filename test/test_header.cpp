@@ -15,7 +15,6 @@ int main() {
     std::cout<<"\t" << "tudat::paths::get_gravity_models_path()    " << tudat::paths::get_gravity_models_path()      <<std::endl;
     std::cout<<"\t" << "tudat::paths::get_quadrature_path()        " << tudat::paths::get_quadrature_path()          <<std::endl;
     std::cout<<"\t" << "tudat::paths::get_space_weather_path()     " << tudat::paths::get_space_weather_path()       <<std::endl;
-    std::cout<<"\n" << "Path test print (with std::string(X))" << std::endl;
     std::cout<<"\t" << "tudat::paths::get_spice_kernels_path()     " << tudat::paths::get_spice_kernels_path()       <<std::endl;
     return 0;
 }

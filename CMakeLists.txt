@@ -66,21 +66,6 @@ endforeach ()
 # INSTALL TREE
 #
 # +============================================================================
-add_library(tudat_resource STATIC ${CMAKE_CURRENT_SOURCE_DIR}/include/tudat/resource/resource.h)
-
-target_include_directories(tudat_resource PUBLIC
-        $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
-        $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/include>
-        $<INSTALL_INTERFACE:include>)
-
-set_target_properties(tudat_resource
-        PROPERTIES
-        LINKER_LANGUAGE CXX
-        ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/lib"
-        LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/lib"
-        RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/tests"
-        )
-
 add_executable(test_header test/test_header.cpp)
 
 set_target_properties(test_header
@@ -97,16 +82,9 @@ target_include_directories(test_header PUBLIC
         $<INSTALL_INTERFACE:include>)
 
 enable_testing()
-find_program (BASH_PROGRAM bash)
 
-#if (BASH_PROGRAM)
-file(COPY test/test_binary DESTINATION ${PROJECT_BINARY_DIR}/tests)
-#add_subdirectory(test/test_binary)
-#add_test(test_binary ${BASH_PROGRAM} ${PROJECT_BINARY_DIR}/tests/test_binary/run_binary_test.sh)
 add_test(test_header tests/test_header)
-
 file(COPY include DESTINATION ${PROJECT_BINARY_DIR})
-
 
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/ DESTINATION "${INSTALL_INCLUDE_DIR}")
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/test/test_binary/ DESTINATION "${CMAKE_INSTALL_PREFIX}/tests")
@@ -130,11 +108,8 @@ install(TARGETS test_header
         RUNTIME DESTINATION "${CMAKE_INSTALL_PREFIX}/tests/"
         )
 
-# Set <project>_LIBRARIES for <project>-config.cmake.
-set(Tudat_RESOURCE_LIBRARY tudat_resource)
-
 # Add all targets to the build-tree export set
-export(TARGETS tudat_resource NAMESPACE ${PROJECT_NAME}:: FILE "${CMAKE_CURRENT_BINARY_DIR}/lib/cmake/${PROJECT_NAME_LOWER}/${PROJECT_NAME_LOWER}_export.cmake")
+export(TARGETS test_header NAMESPACE ${PROJECT_NAME}:: FILE "${CMAKE_CURRENT_BINARY_DIR}/lib/cmake/${PROJECT_NAME_LOWER}/${PROJECT_NAME_LOWER}_export.cmake")
 
 # Installation of the export modules.
 install(EXPORT ${PROJECT_NAME_LOWER}_export NAMESPACE ${PROJECT_NAME}:: DESTINATION "${RELATIVE_INSTALL_CMAKE_DIR}")

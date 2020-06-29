@@ -29,9 +29,7 @@ add_executable(test_binary test_binary.cpp)
 
 message(${TudatResources_INCLUDE_DIRS})
 include_directories(${TudatResources_INCLUDE_DIRS})
-#target_link_libraries(test_binary PUBLIC ${TudatResources_LIBRARY})
 add_test(test_binary tests/test_binary)
-
 
 set_target_properties(test_binary
         PROPERTIES
