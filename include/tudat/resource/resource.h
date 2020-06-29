@@ -25,7 +25,7 @@ namespace tudat {
 
         static inline std::string get_prefix_path() {
             char path[MAX_PREFIX_LEN];
-            return std::string(strcpy(path, PREFIX)).c_str();
+            return std::string(strcpy(path, TUDAT_RESOURCE_PREFIX)).c_str();
         }
 
         static inline std::string get_resources_path() {
