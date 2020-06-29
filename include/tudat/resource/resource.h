@@ -73,7 +73,7 @@ namespace tudat {
         static inline std::string get_spice_kernels_path() {
             char path[MAX_PREFIX_LEN + MAX_RESOURCE_LEN + MAX_RELATIVE_LEN];
             strcpy(path, get_resources_path().c_str());
-            return std::string(strcat(path, SPICE_KERNELS));
+            return std::string(strcat(path, SPICE_KERNELS)).c_str();
         }
 
     }
