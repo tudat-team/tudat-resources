@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+rm -rf build
 mkdir build
 
 cd build
@@ -16,4 +17,4 @@ make -j2
 
 ctest --verbose
 
-make install
+rm -rf build

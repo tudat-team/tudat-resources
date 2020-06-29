@@ -66,44 +66,50 @@ endforeach ()
 # INSTALL TREE
 #
 # +============================================================================
-#add_library(tudat_resource STATIC ${CMAKE_CURRENT_SOURCE_DIR}/src/resource.cpp)
+add_library(tudat_resource STATIC ${CMAKE_CURRENT_SOURCE_DIR}/include/tudat/resource/resource.h)
 
-#target_include_directories(tudat_resource PUBLIC
-#        $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
-#        $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/include>
-#        $<INSTALL_INTERFACE:include>)
-#
-#set_target_properties(tudat_resource
-#        PROPERTIES
-#        LINKER_LANGUAGE CXX
-#        ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/lib"
-#        LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/lib"
-#        RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/bin"
-#        )
+target_include_directories(tudat_resource PUBLIC
+        $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+        $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/include>
+        $<INSTALL_INTERFACE:include>)
 
-find_package(Boost COMPONENTS REQUIRED filesystem)
-
-add_executable(test_paths test/test_paths.cpp)
-
-set_target_properties(test_paths
+set_target_properties(tudat_resource
         PROPERTIES
         LINKER_LANGUAGE CXX
         ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/lib"
         LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/lib"
-        RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/bin"
+        RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/tests"
         )
 
-target_include_directories(test_paths PUBLIC
+add_executable(test_header test/test_header.cpp)
+
+set_target_properties(test_header
+        PROPERTIES
+        LINKER_LANGUAGE CXX
+        ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/lib"
+        LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/lib"
+        RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/tests"
+        )
+
+target_include_directories(test_header PUBLIC
         $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
         $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/include>
-        $<BUILD_INTERFACE:${Boost_INCLUDE_DIRS}>
         $<INSTALL_INTERFACE:include>)
 
 enable_testing()
-add_test(test_paths bin/test_paths)
-target_link_libraries(test_paths PUBLIC ${Boost_LIBRARIES})
+find_program (BASH_PROGRAM bash)
+
+#if (BASH_PROGRAM)
+file(COPY test/test_binary DESTINATION ${PROJECT_BINARY_DIR}/tests)
+#add_subdirectory(test/test_binary)
+#add_test(test_binary ${BASH_PROGRAM} ${PROJECT_BINARY_DIR}/tests/test_binary/run_binary_test.sh)
+add_test(test_header tests/test_header)
+
+file(COPY include DESTINATION ${PROJECT_BINARY_DIR})
+
 
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/ DESTINATION "${INSTALL_INCLUDE_DIR}")
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/test/test_binary/ DESTINATION "${CMAKE_INSTALL_PREFIX}/tests")
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/resource/ DESTINATION "${INSTALL_DATA_DIR}")
 
 # CONFIGURE
@@ -117,21 +123,21 @@ install(FILES
         DESTINATION ${INSTALL_INCLUDE_DIR}/tudat/resource)
 
 # Installation of the library.
-#install(TARGETS tudat_resource
-#        EXPORT tudatresources_export
-#        LIBRARY DESTINATION "${INSTALL_LIB_DIR}"
-#        ARCHIVE DESTINATION "${INSTALL_LIB_DIR}"
-#        RUNTIME DESTINATION "${INSTALL_BIN_DIR}"
-#        )
+install(TARGETS test_header
+        EXPORT tudatresources_export
+        LIBRARY DESTINATION "${INSTALL_LIB_DIR}"
+        ARCHIVE DESTINATION "${INSTALL_LIB_DIR}"
+        RUNTIME DESTINATION "${CMAKE_INSTALL_PREFIX}/tests/"
+        )
 
 # Set <project>_LIBRARIES for <project>-config.cmake.
-#set(Tudat_RESOURCE_LIBRARY tudat_resource)
+set(Tudat_RESOURCE_LIBRARY tudat_resource)
 
 # Add all targets to the build-tree export set
-#export(TARGETS tudat_resource NAMESPACE ${PROJECT_NAME}:: FILE "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME_LOWER}_export.cmake")
+export(TARGETS tudat_resource NAMESPACE ${PROJECT_NAME}:: FILE "${CMAKE_CURRENT_BINARY_DIR}/lib/cmake/${PROJECT_NAME_LOWER}/${PROJECT_NAME_LOWER}_export.cmake")
 
 # Installation of the export modules.
-#install(EXPORT ${PROJECT_NAME_LOWER}_export NAMESPACE ${PROJECT_NAME}:: DESTINATION "${RELATIVE_INSTALL_CMAKE_DIR}")
+install(EXPORT ${PROJECT_NAME_LOWER}_export NAMESPACE ${PROJECT_NAME}:: DESTINATION "${RELATIVE_INSTALL_CMAKE_DIR}")
 
 # Export the package for use from the build-tree
 # (this registers the build-tree with a global CMake-registry)
@@ -146,12 +152,12 @@ include(CMakePackageConfigHelpers)
 
 configure_package_config_file(
         "${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME_LOWER}-config.cmake.in"
-        "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME_LOWER}-config.cmake"
+        "${CMAKE_CURRENT_BINARY_DIR}/lib/cmake/${PROJECT_NAME_LOWER}/${PROJECT_NAME_LOWER}-config.cmake"
         INSTALL_DESTINATION "${INSTALL_CMAKE_DIR}")
 
 install(
         FILES
-        "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME_LOWER}-config.cmake"
+        "${CMAKE_CURRENT_BINARY_DIR}/lib/cmake/${PROJECT_NAME_LOWER}/${PROJECT_NAME_LOWER}-config.cmake"
         DESTINATION "${INSTALL_CMAKE_DIR}"
 )
 
