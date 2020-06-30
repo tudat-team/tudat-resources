@@ -13,7 +13,6 @@ build:
   #  new builds that contain bug fixes for the way a package is built may be
   #  added to a repository.
   number: 0
-  skip: true  # [win and vc<14]
 
 requirements:
   build:
@@ -23,7 +22,6 @@ requirements:
     # or native when not cross-compiling), and any source pre-processors.
     - {{ compiler('cxx') }}            # [not win]
     - {{ compiler('c') }}              # [not win]
-    - {{ compiler('m2w64_c') }}        # [win]
     - cmake
 
 test:
@@ -37,8 +35,4 @@ about:
   home: http://tudat.tudelft.nl/
   license: BSD
   license_family: BSD
-  summary: A curated database of resources to perform astrodynamics and space research.
-
-extra:
-  recipe-maintainers:
-    - ggarrett13
+  summary: A resource manager to perform astrodynamics and space research.

@@ -15,68 +15,85 @@
 #include <cstdlib>
 #include <cstring>
 
-#define MAX_PREFIX_LEN 256
-#define MAX_RESOURCE_LEN strlen("/resource")
-#define MAX_RELATIVE_LEN 20
-
+//#define MAX_PREFIX_LEN 256
+//#define MAX_RESOURCE_LEN strlen("/resource")
+//#define MAX_RELATIVE_LEN 20
 
 namespace tudat {
-    namespace paths {
+namespace paths {
 
-        static inline std::string get_prefix_path() {
-            char path[MAX_PREFIX_LEN];
-            return std::string(strcpy(path, PREFIX)).c_str();
-        }
+static inline std::string get_prefix_path() {
+  return std::string(PREFIX).c_str();
 
-        static inline std::string get_resources_path() {
-            char path[MAX_PREFIX_LEN + MAX_RESOURCE_LEN];
-            strcpy(path, get_prefix_path().c_str());
-            return std::string(strcat(path, RESOURCE)).c_str();
-        }
-
-        static inline std::string get_atmosphere_tables_path() {
-            char path[MAX_PREFIX_LEN + MAX_RESOURCE_LEN + MAX_RELATIVE_LEN];
-            strcpy(path, get_resources_path().c_str());
-            return std::string(strcat(path, ATMOSPHERE_TABLES)).c_str();
-        }
-
-        static inline std::string get_earth_orientation_path() {
-            char path[MAX_PREFIX_LEN + MAX_RESOURCE_LEN + MAX_RELATIVE_LEN];
-            strcpy(path, get_resources_path().c_str());
-            return std::string(strcat(path, EARTH_ORIENTATION)).c_str();
-        }
-
-        static inline std::string get_ephemeris_path() {
-            char path[MAX_PREFIX_LEN + MAX_RESOURCE_LEN + MAX_RELATIVE_LEN];
-            strcpy(path, get_resources_path().c_str());
-            return std::string(strcat(path, EPHEMERIS)).c_str();
-        }
-
-        static inline std::string get_gravity_models_path() {
-            char path[MAX_PREFIX_LEN + MAX_RESOURCE_LEN + MAX_RELATIVE_LEN];
-            strcpy(path, get_resources_path().c_str());
-            return std::string(strcat(path, GRAVITY_MODELS)).c_str();
-        }
-
-        static inline std::string get_quadrature_path() {
-            char path[MAX_PREFIX_LEN + MAX_RESOURCE_LEN + MAX_RELATIVE_LEN];
-            strcpy(path, get_resources_path().c_str());
-            return std::string(strcat(path, QUADRATURE)).c_str();
-        }
-
-        static inline std::string get_space_weather_path() {
-            char path[MAX_PREFIX_LEN + MAX_RESOURCE_LEN + MAX_RELATIVE_LEN];
-            strcpy(path, get_resources_path().c_str());
-            return std::string(strcat(path, SPACE_WEATHER)).c_str();
-        }
-
-        static inline std::string get_spice_kernels_path() {
-            char path[MAX_PREFIX_LEN + MAX_RESOURCE_LEN + MAX_RELATIVE_LEN];
-            strcpy(path, get_resources_path().c_str());
-            return std::string(strcat(path, SPICE_KERNELS)).c_str();
-        }
-
-    }
+  //            char path[MAX_PREFIX_LEN];
+  //            return std::string(strcpy(path, PREFIX)).c_str();
 }
 
-#endif //TUDATRESOURCES_RESOURCE_H
+static inline std::string get_resources_path() {
+  return std::string(get_prefix_path() + RESOURCE).c_str();
+
+  //            char path[MAX_PREFIX_LEN + MAX_RESOURCE_LEN];
+  //            strcpy(path, get_prefix_path().c_str());
+  //            return std::string(strcat(path, RESOURCE)).c_str();
+}
+
+static inline std::string get_atmosphere_tables_path() {
+  return std::string(get_prefix_path() + RESOURCE + ATMOSPHERE_TABLES).c_str();
+
+  //            char path[MAX_PREFIX_LEN + MAX_RESOURCE_LEN + MAX_RELATIVE_LEN];
+  //            strcpy(path, get_resources_path().c_str());
+  //            return std::string(strcat(path, ATMOSPHERE_TABLES)).c_str();
+}
+
+static inline std::string get_earth_orientation_path() {
+  return std::string(get_prefix_path() + RESOURCE + EARTH_ORIENTATION).c_str();
+
+  //            char path[MAX_PREFIX_LEN + MAX_RESOURCE_LEN + MAX_RELATIVE_LEN];
+  //            strcpy(path, get_resources_path().c_str());
+  //            return std::string(strcat(path, EARTH_ORIENTATION)).c_str();
+}
+
+static inline std::string get_ephemeris_path() {
+  return std::string(get_prefix_path() + RESOURCE + EPHEMERIS).c_str();
+
+  //            char path[MAX_PREFIX_LEN + MAX_RESOURCE_LEN + MAX_RELATIVE_LEN];
+  //            strcpy(path, get_resources_path().c_str());
+  //            return std::string(strcat(path, EPHEMERIS)).c_str();
+}
+
+static inline std::string get_gravity_models_path() {
+  return std::string(get_prefix_path() + RESOURCE + GRAVITY_MODELS).c_str();
+
+  //            char path[MAX_PREFIX_LEN + MAX_RESOURCE_LEN + MAX_RELATIVE_LEN];
+  //            strcpy(path, get_resources_path().c_str());
+  //            return std::string(strcat(path, GRAVITY_MODELS)).c_str();
+}
+
+static inline std::string get_quadrature_path() {
+  return std::string(get_prefix_path() + RESOURCE + QUADRATURE).c_str();
+
+  //            char path[MAX_PREFIX_LEN + MAX_RESOURCE_LEN + MAX_RELATIVE_LEN];
+  //            strcpy(path, get_resources_path().c_str());
+  //            return std::string(strcat(path, QUADRATURE)).c_str();
+}
+
+static inline std::string get_space_weather_path() {
+  return std::string(get_prefix_path() + RESOURCE + SPACE_WEATHER).c_str();
+
+  //            char path[MAX_PREFIX_LEN + MAX_RESOURCE_LEN + MAX_RELATIVE_LEN];
+  //            strcpy(path, get_resources_path().c_str());
+  //            return std::string(strcat(path, SPACE_WEATHER)).c_str();
+}
+
+static inline std::string get_spice_kernels_path() {
+  return std::string(get_prefix_path() + RESOURCE + SPICE_KERNELS).c_str();
+
+  //            char path[MAX_PREFIX_LEN + MAX_RESOURCE_LEN + MAX_RELATIVE_LEN];
+  //            strcpy(path, get_resources_path().c_str());
+  //            return std::string(strcat(path, SPICE_KERNELS)).c_str();
+}
+
+} // namespace paths
+} // namespace tudat
+
+#endif // TUDATRESOURCES_RESOURCE_H
