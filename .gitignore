@@ -74,3 +74,6 @@ install_test/*
 /cmake-build-debug/
 /cmake-build*
 
+
+# Rever
+rever/
