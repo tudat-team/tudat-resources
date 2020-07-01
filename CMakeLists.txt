@@ -19,7 +19,7 @@ endif ()
 cmake_policy(SET CMP0069 NEW)
 
 # Get version from file.
-file(READ "version" TudatResources_VERSION)
+file(STRINGS "version" TudatResources_VERSION)
 
 # Specific project name.
 project(TudatResources VERSION ${TudatResources_VERSION} LANGUAGES C CXX)
