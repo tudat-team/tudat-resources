@@ -7,7 +7,7 @@ $ACTIVITIES = [
               'ghrelease'  # Creates a Github release entry for the new tag
                ]
 $VERSION_BUMP_PATTERNS = [  # These note where/how to find the version numbers
-                         ('version', '.*(\r\n?|\n)+', "'$VERSION'")
+                         ('version', '.*\n', "'$VERSION'")
                          ]
 $CHANGELOG_FILENAME = 'CHANGELOG.rst'  # Filename for the changelog
 $CHANGELOG_TEMPLATE = 'TEMPLATE.rst'  # Filename for the news template
