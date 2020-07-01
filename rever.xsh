@@ -1,4 +1,4 @@
-$PROJECT = 'tudatpy'
+$PROJECT = 'tudat-resources'
 $ACTIVITIES = [
               'version_bump',  # Changes the version number in various source files (setup.py, __init__.py, etc)
               'changelog',  # Uses files in the news folder to create a changelog for release
@@ -12,7 +12,7 @@ $VERSION_BUMP_PATTERNS = [  # These note where/how to find the version numbers
                          ]
 $CHANGELOG_FILENAME = 'CHANGELOG.rst'  # Filename for the changelog
 $CHANGELOG_TEMPLATE = 'TEMPLATE.rst'  # Filename for the news template
-$PUSH_TAG_REMOTE = 'git@github.com:tudat-team/tudatpy.git'  # Repo to push tags to
+$PUSH_TAG_REMOTE = 'git@github.com:tudat-team/tudat-resources.git'  # Repo to push tags to
 
 $GITHUB_ORG = 'tudat-team'  # Github org for Github releases and conda-forge
-$GITHUB_REPO = 'tudatpy'  # Github repo for Github releases  and conda-forge
+$GITHUB_REPO = 'tudat-resources'  # Github repo for Github releases  and conda-forge
