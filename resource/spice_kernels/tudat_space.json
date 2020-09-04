@@ -1,0 +1,23 @@
+{
+  "name": "tudat_space",
+  "description": "tudat space website",
+  "spice_kernels": {
+    "type": "directory",
+    "description": "Spice kernels",
+    "items": [
+      {
+        "type": "file",
+        "Description": "",
+        "resource_url": "data.tudat.space/de430_mar097_small.bsp",
+        "last_checked": ""
+      },
+      {
+        "type": "file",
+        "description": "Starting 2015 Jan 01",
+        "resource_url": "http://www.celestrak.com/SpaceData/SW-Last5Years.txt",
+        "last_checked": ""
+      }
+    ]
+  }
+}
+}
