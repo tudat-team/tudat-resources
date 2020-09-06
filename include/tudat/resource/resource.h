@@ -25,7 +25,7 @@ namespace tudat {
 namespace paths {
 
 // https://cboard.cprogramming.com/c-programming/164689-how-get-users-home-directory.html
-char *get_homedir(void) {
+static inline char *get_homedir(void) {
   char homedir[MAX_PATH];
 #ifdef _WIN32
   snprintf(homedir, MAX_PATH, "%s%s", getenv("HOMEDRIVE"), getenv("HOMEPATH"));
