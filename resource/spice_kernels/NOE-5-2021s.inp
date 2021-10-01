@@ -1,0 +1,7 @@
+LEAPSECONDS_KERNEL   = naif0012.tls
+
+SPK_KERNEL           = NOE-5-2021s.bsp
+ BEGIN_TIME          = 1879 JAN 01
+ END_TIME            = 2049 JAN 01
+ SOURCE_SPK_KERNEL   = NOE-5-2021.bsp
+   BODIES          = 599, 501, 502, 503, 504

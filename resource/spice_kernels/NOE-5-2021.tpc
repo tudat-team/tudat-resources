@@ -1,0 +1,46 @@
+KPL/PCK
+ 
+\begintext
+ 
+          NOE-5-2021 ephemeris file.
+ 
+\begindata
+
+NOE_PCK_VERSION  = ('NOE-5-2021' )
+NOE_PCK_RELEASEDATE  = (   2021.0203 )
+
+
+\begintext
+The GM, given in km3.s^-2
+
+\begindata
+BODY599_GM     = (126683750.521837 )
+
+BODY501_GM     = (5983.74305970101 )
+BODY502_GM     = (3197.26224094422 )
+BODY503_GM     = (9877.55557883291 )
+BODY504_GM     = (7104.41600386490 )
+BODY505_GM     = (0.138817212283869 )
+BODY514_GM     = (0.0 )
+BODY515_GM     = (0.0 )
+BODY516_GM     = (0.0 )
+
+
+\begintext
+The pole orientation, given in deg and deg/T (T: Julian century)
+
+\begindata
+
+BODY599_POLE_RA        = ( 268.054324066462      -2.402123404543201E-02      0. )
+BODY599_POLE_DEC       = ( 64.4965864260179      -1.639858542270906E-03      0. )
+
+
+BODY599_NUT_PREC_RA  = ( 0.000117E0  0.000938E0  0.001432E0  0.000030E0  0.002150E0 )
+														
+BODY599_NUT_PREC_DEC  = ( 0.000050E0  0.000404E0  0.000617E0  0.000013E0  0.000926E0 )
+
+BODY599_NUT_PREC_ANGLES  = ( 99.360714E0   4850.4046E0
+		 				     175.895369E0  1191.9605E0
+		 				     300.323162E0   262.5475E0
+		 				     114.012305E0  6070.2476E0
+		 				      49.511251E0    64.3000E0 )
