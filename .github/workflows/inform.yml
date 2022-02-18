@@ -21,7 +21,7 @@ jobs:
           event-type: inform
           client-payload: >-
             {
-            "event": "${{ github.event }",
+            "event": "${{ github.event }}",
             "actor": "${{ github.actor }}",
             "repository": "${{ github.repository }}",
             "ref": "${{ github.ref }}"
