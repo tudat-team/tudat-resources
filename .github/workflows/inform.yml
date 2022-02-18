@@ -19,10 +19,10 @@ jobs:
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
           repository: tudat-team/.github
           event-type: inform
-          client-payload: >
+          client-payload: >-
             {
             "event": "${{ github.event }",
             "actor": "${{ github.actor }}",
             "repository": "${{ github.repository }}",
-            "ref": "${{ github.ref }}",
+            "ref": "${{ github.ref }}"
             }
