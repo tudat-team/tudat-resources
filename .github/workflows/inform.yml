@@ -16,13 +16,16 @@ jobs:
       - name: repository-dispatch
         uses: peter-evans/repository-dispatch@v1
         with:
-          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          token: ${{ secrets.GH_TOKEN }}
           repository: tudat-team/.github
           event-type: inform
           client-payload: >-
             {
-            "event": "inform",
+            "event": "${{ github.event_name }}",
             "actor": "${{ github.actor }}",
             "repository": "${{ github.repository }}",
-            "ref": "${{ github.ref }}"
+            "ref": "${{ github.ref }}",
+            "ref_name": "${{ github.ref_name }}",
+            "ref_type": "${{ github.ref_type }}",
+            "sha": "${{ github.sha }}"
             }
