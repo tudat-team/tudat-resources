@@ -1,4 +1,4 @@
-# Resources
+# Data Directories
 
 - `atmosphere_tables`
 - `earth_orientation`
