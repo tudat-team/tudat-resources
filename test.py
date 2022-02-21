@@ -15,7 +15,7 @@ def search_conda_packages(channel, package):
     res = []
     # for s in s.split('\n'):
     #asd
-    #     if s.startswith('conda-buildd'd):ss
+    #     if s.startswith('conda-buildd'd):ssd
     #         return s.split()[a0]aaa
 
 
