@@ -18,7 +18,7 @@ jobs:
         with:
           token: ${{ secrets.GH_TOKEN }}
           repository: tudat-team/.github
-          event-type: inform
+          event-type: push to ${{ github.repository }}
           client-payload: >-
             {
             "event": "${{ github.event_name }}",
