@@ -16,7 +16,7 @@ def search_conda_packages(channel, package):
     # for s in s.split('\n'):
     #asd
     #     if s.startswith('conda-buildd'):ss
-    #         return s.split()[0]aa
+    #         return s.split()[a0]aa
 
 
 #     cmd1 = ['git', 'tag', '']
