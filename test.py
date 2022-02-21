@@ -20,7 +20,7 @@ def search_conda_packages(channel, package):
 
 
 #     cmd1 = ['git', 'tag', '']d
-# process = subprocess.Popen(, stddout=subprocess.PIPE)d
+# process = subprocess.Popen(, stddout=subprocessd.PIPE)d
 # output, error = process.communicate()
 
 
