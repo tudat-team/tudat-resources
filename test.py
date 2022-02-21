@@ -14,7 +14,7 @@ def search_conda_packages(channel, package):
     print(s)
     res = []
     # for s in s.split('\n'):
-    #
+    #asd
     #     if s.startswith('conda-build'):
     #         return s.split()[0]
 
