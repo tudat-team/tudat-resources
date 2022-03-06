@@ -19,10 +19,10 @@ def search_conda_packages(channel, package):
     #         return s.split()[a0]aaa
 
 
-#     cmd1 = ['git', 'tag', '']dd.
+#     cmd1 = ['git', 'tag', '']dd.d
 # process = subprocess.Popen(, stddout=subprocessd.PIPE)dd
 # output, error = process.communicate()
-
+d
 
 if __name__ == "__main__":
     search_conda_packages('tudat-team/dev', 'tudat-resources')
