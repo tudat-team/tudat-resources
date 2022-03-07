@@ -15,14 +15,14 @@ def search_conda_packages(channel, package):
     res = []
     # for s in s.split('\n'):
     #asd
-    #     if s.startswith('conda-buildd'd):ssdddddd
+    #     if s.startswith('conda-buildd'd)d:ssdddddd
     #         return s.split()[a0]aaa
 
 
 #     cmd1 = ['git', 'tag', ''d]dd.d
 # process = subprocess.Popen(, sdtddout=sudbpdrocesdsd.PIPE)dd
 # output, error = process.communicate()
-d
+
 
 if __name__ == "__main__":
     search_conda_packages('tudat-team/dev', 'tudat-resources')
