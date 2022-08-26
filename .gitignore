@@ -57,6 +57,7 @@ build*/
 bin/
 lib/
 boost/
+resource/spice_kernels/large_kernels/
 
 #
 # Editor related
