@@ -78,3 +78,9 @@ install_test/*
 
 # Rever
 rever/
+
+# Large files
+resource/spice_kernels/NOE-5-2021.bsp
+resource/spice_kernels/NOE-4-2020.bsp
+resource/spice_kernels/NOE-6-2018-MAIN-v2.bsp
+resource/spice_kernels/de440.bsp
