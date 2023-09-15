@@ -1,0 +1,179 @@
+ 
+Low accuracy, long term predict earth PCK
+=========================================
+ 
+Created by:         Nat Bachman (NAIF/JPL)
+Creation date:      2023-06-03T03:59:00
+Program version:    WRTPEM Version 7.0.0, 02-JUN-2023
+Original file name: earth_200101_990825_predict.bpc
+
+Data Sources
+ 
+ Input file:  extended EOP created from
+ 
+   JPL EOP file latest.long
+   (Copied from WWW URL
+   http://epic.jpl.nasa.gov/nav/eop/latest.long)
+ 
+ Source EOP metadata:
+ 
+   $  JPL Earth Orientation Parameter File
+   $  Last Data Point  1-JUN-2023       
+   $  Predicts to     25-AUG-2023       
+   $  
+   EOPLBL='EOP. LAST DATUM  1-JUN-2023. PREDICTS->25-AUG-2023, UT1TYP=UT1.   '
+   EOPFNG='Enter MAKE_EOP  2-Jun-2023 11:03:48      linked 05-Aug-2020 19:40:42  '
+   EOPUT1='UT1'
+   EOPTYP='EOP'
+   EOPTIM=' 2-Jun-2023 11:03:48     '
+   EOPTRF='ITRF93'
+   EOPCRF='ICRF93'
+ 
+ Input file: leapseconds kernel naif0012.tls
+ 
+ 
+Coverage
+ 
+   Start time:             2020 JAN 01 00:01:09.183 TDB
+   Stop time:              2099 AUG 25 00:01:09.182 TDB
+
+   UTC Epoch of last datum:  1-JUN-2023
+ 
+Particulars
+ 
+   This is low-accuracy predict PCK file giving the orientation of the Earth as
+   a function of time for the interval shown above. This PCK file is made from
+   an extended EOP file which consists of the JPL EOP file named above, with
+   four extra records appended. These records are designed to add 76 years to
+   the coverage of the EOP file without affecting interpolated data values for
+   times within the coverage interval of the original EOP file. Data values
+   of records in the extended interval are constant, with the exception of
+   the TAI-UT1 offsets. Those are adjusted so that the corresponding values
+   of TAI-UT1R are constant.
+ 
+   The terrestrial frame whose orientation is given by this file is ITRF93; the
+   inertial base frame is Ecliptic of J2000. Rotational effects included are:
+ 
+      -Precession (1976 IAU model)
+      -Nutation   (1980 IAU model)
+      -Nutation corrections
+      -Rotation through true sidereal time
+      -Polar motion
+ 
+   Euler angles have been extracted from the Ecliptic-to-ITRF93 rotation matrix,
+   and Chebyshev polynomials were fit to the Euler angles. The Chebyshev
+   expansion degree was 49; the degree of the retained polynomials is 20.
+   The coverage interval for each set of polynomials is 1 day or less.
+ 
+   This file represents the same earth orientation as does the cited EOP file
+   for the time range:
+ 
+      01-JAN-2020 UTC
+      25-AUG-2023 UTC
+
+   That EOP file was extended as described below. The extended EOP file 
+   was used to create this binary PCK file.
+ 
+   For epochs after the end of EOP coverage, polar motion and nutation
+   corrections from the EOP file are held constant at values obtained by
+   extrapolating 1 day from the last source EOP record. TAI-UT1 values are
+   set so that the corresponding TAI-UT1R values at each epoch of the
+   extrapolated records are equal. Details of the EOP extrapolation process
+   are given below.
+ 
+      Let n be the number of data records in the original EOP file. Let
+      MJD(i) be the epoch of the ith record expressed as a modified
+      Julian date. The added records have the following
+      characteristics:
+ 
+         Record n+1:  Epoch is MJD(n) + 1. Nutation correction and polar
+                      motion values are obtained by extrapolating to the
+                      epoch a cubic Lagrange interpolating polynomial
+                      fitted to the corresponding data in records n-3 : n.
+                      TAI-UT1 is obtained by converting to TAI-UT1R the
+                      TAI-UT1 data in records n-3 : n, extrapolating an
+                      interpolating polynomial as for the other data, then
+                      converting the extrapolated TAI-UTR1 value to TAI-UT1.
+                      UTC string is consistent with the MJD epoch.
+ 
+         Record n+2:  Epoch is MJD(n) + 2. Nutation correction and polar
+                      motion values match those of record n+1. TAI-UT1 is
+                      set so that the corresponding value of TAI-UT1R at
+                      this epoch is that corresponding to TAI-UT1 at the
+                      epoch of record n+1. UTC string is consistent with the
+                      MJD epoch.
+ 
+         Record n+3:  Epoch is MJD(n) + 3. Data values are as described for
+                      record n+2, adjusted for this epoch.
+ 
+         Record n+4:  Epoch is MJD(n) + 28854. Data values are as described
+                      for record n+2, adjusted for this epoch.
+ 
+      In all of the four records described above, the values of TAI-UT1
+      have been selected so the corresponding values of TAI-UT1R are
+      constant and equal to the value resulting from extrapolating the cubic
+      interpolating polynomial for TAI-UT1R, fitted to the final four values
+      of TAI-UT1R derived from the original EOP file, to the epoch of
+      record n+1.
+ 
+      The expected behavior of the interpolation algorithm is as follows:
+ 
+         Time range               Interpolation characteristics
+         ============             =============================
+ 
+         Epoch of record 1 to
+         epoch of record n-1:     Interpolation is identical to standard EOP
+                                  file, up to round-off error.
+ 
+                                  Orientation error relative to that provided
+                                  by a binary PCK derived from the source EOP
+                                  file is non-zero due to differences in the
+                                  Chebyshev fitting process. Error is at the
+                                  0.031 nanoradian level.
+ 
+         Epoch of record n-1 to
+         epoch of record n:       Nearly identical to standard EOP file;
+                                  small round-off error will occur.
+ 
+                                  Orientation error relative to that provided
+                                  by a binary PCK derived from the source EOP
+                                  file at the at the 0.017 nanoradian level 
+                                  [sic].
+ 
+         Epoch of record n to
+         epoch of record n+1:     Some ringing of interpolated data
+                                  will occur. This interval has duration 1 day.
+ 
+                                  Orientation difference relative to the
+                                  IAU_EARTH reference frame's rotation model
+                                  is at the 1.38 milliradian level.
+ 
+         Epoch of record n+1 to
+         epoch of record n+2:     Some ringing of interpolated data will occur.
+                                  This interval has duration 1 day.
+  
+                                  Orientation difference relative to the
+                                  IAU_EARTH reference frame's rotation model
+                                  is at the 1.38 milliradian level.
+                                  
+         Epoch of record n+2 to
+         epoch of record n+3:     Ideally nutation corrections and polar
+                                  motion will be constant, as will TAI-UT1R
+                                  derived from TAI-UT1 values in the file.
+                                  Some round-off error should be expected.
+                                  This interval has duration 1 day.
+
+                                  Orientation difference relative to the
+                                  IAU_EARTH reference frame's rotation model
+                                  is at the 1.39 milliradian level.
+  
+         Epoch of record n+3 to
+         epoch of record n+4:     Data are as described for records n+2 to
+                                  n+3. This interval has duration ~76 years.
+ 
+                                  Orientation difference relative to the
+                                  IAU_EARTH reference frame's rotation model
+                                  ranges from the 1.39 milliradian level at
+                                  the interval start to the 4.45 milliradian
+                                  level at the end.
+ 

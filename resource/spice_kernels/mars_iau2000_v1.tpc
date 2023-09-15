@@ -1,0 +1,383 @@
+KPL/PCK
+
+
+P_constants (PCK) SPICE kernel file mars_iau2000_v1.tpc
+===========================================================================
+
+        By: Nat Bachman, Boris Semenov (NAIF)    2023 January 18
+
+
+Organization
+--------------------------------------------------------
+
+     The contents of this file are as follows.
+
+     Introductory Information:
+
+         --   Version description
+
+         --   Disclaimer
+
+         --   Sources
+
+         --   Body numbers and names
+
+     PCK Data:
+
+         --   Orientation constants for Mars and its natural
+              satellites
+
+         --   Radii of Mars and its natural satellites
+
+     Additional data:
+
+         --   Variables that prevent conflicts with Mars system
+              orientation data in pck00011.tpc and pck00011_n0066.tpc.
+              See the version description below.
+
+Version description
+--------------------------------------------------------
+
+     This file was created on January 18, 2023.
+
+     Orientation data in this file for Mars and its natural satellites
+     are from reference [1] and are identical to those provided in the
+     PCK file
+
+         mars_iau2000_v0.tpc
+
+     The IAU Working Group on Cartographic Coordinates and Rotational
+     Elements has published several updates to the Mars system orientation
+     data presented here; the latest updates are available in references
+     [4] and [5].
+
+     The Mars system shape data in this file are from reference [4].
+     These sets of triaxial ellipsoid radii are identical to those for
+     the corresponding bodies in the files
+
+        pck00011.tpc
+        pck00011_n0066.tpc
+
+     which are the latest generic PCK files released by NAIF. Data in
+     those files are primarily from reference [4].
+
+     WARNING:
+
+        Mars system orientation data in the PCK files pck00011*.tpc listed
+        above are incompatible with corresponding data from older PCK files.
+
+        Loading either of the pck00011*.tpc files, and then loading older
+        PCK files, including
+
+           mars_iau2000_v0.tpc
+           pck00010.tpc
+
+        will make Mars system orientation data from the later loaded files
+        unusable. After this sequence of kernel loads, calls to SPICE APIs
+        that require the orientation of Mars, Phobos, or Deimos, for example
+        calls to the SPICE APIs PXFORM or SXFORM, will cause the error
+        SPICE(INSUFFICIENTANGLES) to be signaled.
+
+        Mars system orientation data in the file pck00011.tpc cannot be
+        used with SPICE Toolkit versions earlier than N0067.
+
+     This update of mars_iau2000_v0.tpc works around the problem described
+     above. This PCK contains variables that enable Mars system orientation
+     data in this file to be safely used when this file is loaded after
+     either pck00011.tpc or pck00011_n0066.tpc.
+
+     After this file is loaded, it is safe to load other, older PCKs
+     and use the Mars system orientation data from those files, even
+     if one of the pck00011*.tpc files had been loaded before this file.
+
+     This kernel may be used by any SPICE Toolkit version.
+
+
+Disclaimer
+--------------------------------------------------------
+
+     This constants file may not contain the parameter values that
+     you prefer. Note that this file may be readily modified by
+     you or anyone else. NAIF suggests that you inspect this file
+     visually before proceeding with any critical or extended
+     data processing.
+
+     NAIF requests that you update the ``by line' and date if you
+     modify the file.
+
+
+Sources
+--------------------------------------------------------
+
+     The sources for the constants listed in this file are:
+
+         [1]  Seidelmann, P.K., Abalakin, V.K., Bursa, M., Davies, M.E.,
+              Bergh, C. de, Lieske, J.H., Oberst, J., Simon, J.L.,
+              Standish, E.M., Stooke, P., and Thomas, P.C. (2002).
+              "Report of the IAU/IAG Working Group on Cartographic
+              Coordinates and Rotational Elements of the Planets and
+              Satellites: 2000," Celestial Mechanics and Dynamical
+              Astronomy, v.82, Issue 1, pp. 83-111.
+
+         [2]  ``Planetary Geodetic Control Using Satellite
+              Imaging,'' Journal of Geophysical Research, Vol. 84,
+              No. B3, March 10, 1979, by Thomas C. Duxbury. This
+              paper is cataloged as NAIF document 190.0.
+
+         [3]  Letter from Thomas C. Duxbury to Dr. Ephraim
+              Lazeryevich Akim, Keldish Institute of Applied
+              Mathematics, USSR Academy of Sciences, Moscow, USSR.
+              This letter is catalogued as NAIF document number
+              195.0.
+
+         [4]  Archinal, B.A., Acton, C.H., A'Hearn, M.F., Conrad, A.,
+              Consolmagno, G.J., Duxbury, T., Hestroffer, D., Hilton,
+              J.L., Kirk, R.L., Klinoner, S.A., McCarthy, D.,
+              Meech, K., Oberst, J., Ping., J., Seidelmann, P.K., Tholen,
+              D.J., Thomas, P.C., and Williams, I.P., "Report of the IAU
+              Working Group on Cartographic Coordinates and Rotational
+              Elements: 2015," Celestial Mechanics and Dynamical Astronomy
+              130, Article number 22 (2018).
+              DOI: https://doi.org/10.1007/s10569-017-9805-5
+
+         [5] Archinal, B.A., Acton, C.H., Conrad, A., Duxbury, T.,
+             Hestroffer, D., Hilton, J.L., Jorda, L., Kirk, R.L.,
+             Klinoner, Margot, J.-L., S.A., Meech, K., Oberst,
+             Paganelli, F., J., Ping., J., Seidelmann, P.K., Stark, A.,
+             Tholen, Wang, Y., and Williams, I.P., "Correction to:
+             Report of the IAU Working Group on Cartographic Coordinates
+             and Rotational Elements: 2015."
+
+
+     Values in this file are from [1] and [4]. All exceptions
+     are commented where they occur in this file. The exceptions are:
+
+         --   The second nutation precession angle (M2) for Mars is
+              represented by a quadratic polynomial in the 2002
+              IAU report [1]. Prior to the N0067 version of the SPICE
+              Toolkit, SPICE PCK orientation evaluation software could
+              not handle this term, so we truncate the polynomial
+              to a linear one.
+
+         --   Values for Mars' prime meridian offset are listed
+              as comments. These are taken from [2] and [3].
+
+
+Body numbers and names
+--------------------------------------------------------
+
+     The NAIF ID codes used in this file are
+
+          4  Mars barycenter
+        499  Mars
+        401  Phobos
+        402  Deimos
+
+     See the NAIF_IDS Required Reading for the full list of ID
+     codes recognized by the SPICE system.
+
+
+Orientation constants for Mars and its natural satellites
+---------------------------------------------------------
+
+Mars
+
+     Values are from [1].
+
+        \begindata
+
+        BODY499_POLE_RA          = ( 317.68143   -0.1061      0. )
+        BODY499_POLE_DEC         = (  52.88650   -0.0609      0. )
+        BODY499_PM               = ( 176.630    350.89198226 )
+
+        \begintext
+
+        Source [2] specifies the following value for the lambda_a term
+        (BODY4_LONG_AXIS ) for Mars.
+
+        This term is the POSITIVE WEST LONGITUDE, measured from the prime
+        meridian, of the longest axis of the ellipsoid representing the ``mean
+        planet surface,'' as the article states.
+
+           body499_long_axis        = (  110.  )
+
+        Source [3] specifies the lambda_a value
+
+           body499_long_axis        = (  104.9194  )
+
+        We list these lambda_a values for completeness. The IAU gives equal
+        values for both equatorial radii, so the lambda_a offset does not
+        apply to the IAU model.
+
+
+        The 2000 IAU report defines M2, the second nutation precession angle,
+        by:
+                                                2
+           192.93  +  1128.4096700 d  +  8.864 T
+
+        We truncate the M2 series to a linear expression, because SPICE PCK
+        orientation evaluation software, prior to SPICE Toolkit version N0067,
+        could not handle the quadratic term.
+
+        Again, the linear terms are scaled by 36525.0:
+
+            -0.4357640000000000       -->     -15916.28010000000
+          1128.409670000000           -->   41215163.19675000
+            -1.8151000000000000E-02   -->       -662.9652750000000
+
+        We also introduce a fourth nutation precession angle, which
+        is the pi/2-complement of the third angle.  This angle is used
+        in computing the prime meridian location for Deimos.  See the
+        discussion of this angle below in the section containing orientation
+        constants for Deimos.
+
+        \begindata
+
+        BODY4_NUT_PREC_ANGLES  = (  169.51     -15916.2801
+                                    192.93  +41215163.19675
+                                     53.47       -662.965275
+                                     36.53       +662.965275  )
+
+        \begintext
+
+
+Satellites of Mars
+
+
+     Phobos
+
+        Values are from [1].
+
+            The quadratic prime meridian term is scaled by 1/36525**2:
+
+               8.864000000000000   --->   6.6443009930565219E-09
+
+          \begindata
+
+          BODY401_POLE_RA       = (  317.68      -0.108       0.  )
+          BODY401_POLE_DEC      = (  +52.90      -0.061       0.  )
+          BODY401_PM            = (   35.06
+                                   +1128.8445850
+                                       6.6443009930565219D-09     )
+
+          BODY401_LONG_AXIS     = (    0.    )
+
+          BODY401_NUT_PREC_RA   = (   +1.79   0.    0.  0. )
+          BODY401_NUT_PREC_DEC  = (   -1.08   0.    0.  0. )
+          BODY401_NUT_PREC_PM   = (   -1.42  -0.78  0.  0. )
+
+          \begintext
+
+
+     Deimos
+
+        Values are from [1].
+
+           The Deimos prime meridian expression is:
+
+
+                                                     2
+              W = 79.41  +  285.1618970 d  -  0.520 T  -  2.58 sin M
+                                                                    3
+
+                                                       +  0.19 cos M .
+                                                                    3
+
+
+           SPICE PCK orientation evaluation software cannot handle the
+           cosine term directly, but we can represent it as
+
+              0.19 sin M
+                        4
+
+           where
+
+              M   =  90.D0 - M
+               4              3
+
+           Therefore, the nutation precession angle assignments for Phobos
+           and Deimos contain four coefficients rather than three.
+
+           The quadratic prime meridian term is scaled by 1/36525**2:
+
+              -0.5200000000000000  --->   -3.8978300049519307E-10
+
+           \begindata
+
+           BODY402_POLE_RA       = (  316.65     -0.108       0.            )
+           BODY402_POLE_DEC      = (  +53.52     -0.061       0.            )
+           BODY402_PM            = (   79.41   +285.1618970  -3.897830D-10  )
+           BODY402_LONG_AXIS     = (    0.                                  )
+
+           BODY402_NUT_PREC_RA   = (    0.   0.   +2.98   0.    )
+           BODY402_NUT_PREC_DEC  = (    0.   0.   -1.78   0.    )
+           BODY402_NUT_PREC_PM   = (    0.   0.   -2.58   0.19  )
+
+           \begintext
+
+
+
+Radii for Mars and its natural satellites
+--------------------------------------------------------
+
+Mars
+
+     Old values:
+
+        Values for Mars are unchanged in the 2015 report [4].
+
+     Current values:
+
+        The 2015 IAU report [4] gives separate values for the north and
+        south polar radii:
+
+           north:  3373.19
+           south:  3379.21
+
+        The report provides the average of these values as well,
+        which we use as the polar radius for the triaxial model.
+
+  \begindata
+
+        BODY499_RADII       = ( 3396.19   3396.19   3376.20 )
+
+  \begintext
+
+
+Satellites of Mars
+
+     Old values:
+
+        Values are from [1].
+
+
+        body401_radii     = (       13.4        11.2          9.2    )
+        body402_radii     = (        7.5         6.1          5.2    )
+
+     Current values:
+
+        Values for Mars are from the 2015 report [4].
+
+
+\begindata
+
+       BODY401_RADII     = ( 13.0    11.4    9.1 )
+       BODY402_RADII     = (  7.8     6.0    5.1 )
+
+\begintext
+
+
+Variables that prevent conflicts with PCKs pck00011*.tpc
+--------------------------------------------------------
+
+\begindata
+
+    BODY4_MAX_PHASE_DEGREE = 1
+
+    BODY499_NUT_PREC_DEC   = ( 0 )
+    BODY499_NUT_PREC_PM    = ( 0 )
+    BODY499_NUT_PREC_RA    = ( 0 )
+
+\begintext
+
+[End of file]

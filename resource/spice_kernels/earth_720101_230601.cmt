@@ -1,0 +1,55 @@
+ 
+Binary "High Accuracy" Earth PCK File
+=====================================
+ 
+Created by:         NAIF/JPL
+Creation date:      2023-06-03T04:33:29
+Program version:    WRTPEM Version 7.0.0, 02-JUN-2023
+Original file name: earth_720101_230601.bpc
+ 
+Data Sources
+ 
+   Input EOP file: latest.long
+   Input LSK:      naif0012.tls
+ 
+Coverage
+ 
+   ET Start time:             1972 JAN 01 00:00:42.183 TDB
+   ET Stop time:              2023 JUN 01 00:01:09.184 TDB
+ 
+   UTC Epoch of last datum:   2023 JUN 01 00:00:00.000 UTC
+ 
+Particulars
+ 
+   The body ID code used in this file for the Earth is 3000; this
+   number indicates that the terrestrial frame used is ITRF93.
+ 
+   This file is a "high-precision" PCK file giving the orientation of
+   the Earth as a function of time for the interval shown above.  The
+   terrestrial frame is ITRF93; the inertial base frame is Ecliptic of
+   J2000.  Rotational effects included are:
+ 
+      -Precession (1976 IAU model)
+      -Nutation   (1980 IAU model)
+      -Rotation through true sidereal time
+      -Polar motion
+      -Nutation corrections
+ 
+   Euler angles have been extracted from the Ecliptic-to-ITRF93
+   rotation matrix, and Chebyshev polynomials were fit to the
+   Euler angles.  The Chebyshev expansion degree was 49; the
+   degree of the retained polynomials is 20.  The coverage
+   interval for each set of polynomials is 1 day or less.
+ 
+Usage
+ 
+   This file may be used for applications requiring earth orientation
+   accuracy of several microradians.
+ 
+   Note that high accuracy transformation of station locations
+   from terrestrial to inertial reference frames requires
+   accounting for motion of the station relative to the terrestrial
+   reference frame; such motion is not reflected by the rotation
+   data in this file.
+ 
+********************************************************************************

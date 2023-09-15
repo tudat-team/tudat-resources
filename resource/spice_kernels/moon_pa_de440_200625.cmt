@@ -1,0 +1,50 @@
+ 
+ 
+   SPICE Binary Lunar PCK
+   =====================================================================
+ 
+   Original file name:                   moon_pa_de440_200625.bpc
+   Creation date:                        2021 June 25, 17:00
+   Created by:                           Nat Bachman  (NAIF/JPL)
+ 
+ 
+   This kernel contains high-accuracy lunar orientation data from the
+   JPL Solar System Dynamics Group's planetary ephemeris DE440.
+ 
+   The DE440 ephemeris is documented in
+ 
+       [1] Ryan S. Park, et al, "The JPL Planetary and Lunar Ephemerides
+           DE440 and DE441," The Astronomical Journal, Volume 161, Number 3.
+           2021 AJ 161 105.
+ 
+           URL:
+ 
+             https://iopscience.iop.org/article/10.3847/1538-3881/abd414/meta
+ 
+ 
+   Applications using this file must also load the NAIF lunar frame kernel
+ 
+      moon_de440_200625.tf
+ 
+   which contains frame specifications required in order to use this
+   PCK file. See this frame kernel for detailed documentation describing the
+   lunar body-fixed frames supported by SPICE.
+ 
+   This PCK file, when used together with cited frame kernel, provides the
+   orientation of the lunar Principal Axes (PA) reference frame defined by
+   DE440, relative to the ICRF.
+ 
+   These kernels, used together, also provide the orientation relative to the
+   ICRF of a variant of the Mean Earth/Polar Axis (ME) reference frame, which
+   has been defined to align closely with the DE421 ME reference frame. See
+   [1] for a description of this reference frame.
+ 
+   See the cited frame kernel for the names and ID codes used by the SPICE
+   system for these reference frames.
+ 
+   This file covers the time period shown below:
+ 
+      Start of Interval (ET)              End of Interval (ET)
+      -----------------------------       -----------------------------
+      1549 DEC 31 00:00:00.000            2650 JAN 25 00:00:00.000
+ 
