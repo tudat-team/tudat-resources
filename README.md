@@ -1,14 +1,8 @@
 # Resources
 
-- `atmosphere_tables`
-- `earth_orientation`
-- `ephemeris`
-- `gravity_models`
-- `quadrature`
-- `space_weather`
-- `spice_kernels`
+This repository contains the default files that are downloaded when installing the Tudat software. For more details on the project, we refer to the [project website](https://docs.tudat.space/en/latest/) and our [project Github page](https://github.com/tudat-team).
 
-Part of the contents of these directories are taken from external sources, which are listed below:
+Part of the contents of this repository are taken from external sources, which are listed below:
 
 - `atmosphere_tables`
 	- MCD files: created from data in Mars Climate Database (http://www-mars.lmd.jussieu.fr/mars/access.html)
