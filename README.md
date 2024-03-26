@@ -26,5 +26,7 @@ Part of the contents of this repository are taken from external sources, which a
 - `spice_kernels` 
 	- NOE kernels: Retrieved from https://ftp.imcce.fr/pub/ephem/satel/NOE/
 	- All other kernels: Retrieved from https://naif.jpl.nasa.gov/pub/naif/generic_kernels/
+- `star_catalog_biases`
+	- debias_2018: Retrieved from https://www.sciencedirect.com/science/article/pii/S0019103519305329
 
 
