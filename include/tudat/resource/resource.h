@@ -25,14 +25,14 @@ namespace tudat {
 namespace paths {
 
 // https://cboard.cprogramming.com/c-programming/164689-how-get-users-home-directory.html
-static inline char *get_homedir(void) {
+static inline std::string get_homedir(void) {
   char homedir[MAX_PATH];
 #ifdef _WIN32
   snprintf(homedir, MAX_PATH, "%s%s", getenv("HOMEDRIVE"), getenv("HOMEPATH"));
 #else
   snprintf(homedir, MAX_PATH, "%s", getenv("HOME"));
 #endif
-  return strdup(homedir);
+  return std::string(homedir);
 }
 
 static inline std::string get_prefix_path() {
@@ -40,7 +40,7 @@ static inline std::string get_prefix_path() {
 }
 
 static inline std::string get_hidden_path() {
-  return std::string(std::string(get_homedir()) + "/.tudat").c_str();
+  return std::string(get_homedir() + "/.tudat").c_str();
 }
 
 static inline std::string get_resources_path() {
