@@ -6,11 +6,15 @@
 #define RESOURCE "/resource"
 #define ATMOSPHERE_TABLES "/atmosphere_tables"
 #define EARTH_ORIENTATION "/earth_orientation"
+#define EARTH_DEFORMATION "/earth_deformation"
 #define EPHEMERIS "/ephemeris"
 #define GRAVITY_MODELS "/gravity_models"
 #define QUADRATURE "/quadrature"
 #define SPACE_WEATHER "/space_weather"
 #define SPICE_KERNELS "/spice_kernels"
+#define STAR_CATALOG_BIASES "/star_catalog_biases"
+#define STATION_LOCATIONS "/station_locations"
+
 #define MAX_PATH 255
 
 #include <cstdlib>
@@ -55,6 +59,10 @@ static inline std::string get_earth_orientation_path() {
   return std::string(get_hidden_path() + RESOURCE + EARTH_ORIENTATION).c_str();
 }
 
+static inline std::string get_earth_deformation_path() {
+    return std::string(get_hidden_path() + RESOURCE + EARTH_ORIENTATION).c_str();
+}
+
 static inline std::string get_ephemeris_path() {
   return std::string(get_hidden_path() + RESOURCE + EPHEMERIS).c_str();
 }
@@ -75,6 +83,13 @@ static inline std::string get_spice_kernels_path() {
   return std::string(get_hidden_path() + RESOURCE + SPICE_KERNELS).c_str();
 }
 
+static inline std::string get_star_catalog_biases_path() {
+    return std::string(get_hidden_path() + RESOURCE + STAR_CATALOG_BIASES).c_str();
+}
+
+static inline std::string get_station_locations_path() {
+    return std::string(get_hidden_path() + RESOURCE + STATION_LOCATIONS).c_str();
+}
 }// namespace paths
 }// namespace tudat
 
