@@ -14,8 +14,8 @@ Part of the contents of this repository are taken from external sources, which a
 	- eopc04_14_IAU2000.62-now.txt: Retrieved from https://datacenter.iers.org/versionMetadata.php?eopc04_14_IAU2000.62-now
 	- Other files: created from Tables 5.1a for the computation of polar motion correction due to tidal gravitation on non-rigid Earth, Table 5.1b to libration corrections to Earth UT1 and Table 8.2 and 8.3 for ocean tide corrections to polar motion and UT1 (IERS 2010 Convenions: chapter 5: https://iers-conventions.obspm.fr/content/chapter5/icc5.pdf; IERS 2010 Convenions: chapter 8: https://iers-conventions.obspm.fr/content/chapter8/icc8.pdf)
 - `ephemeris`
-	- Files from: https://ssd.jpl.nasa.gov/planets/approx_pos.html
-- `graity_models`
+	- Files from: https://ssd.jpl.nasa.gov/planets/approx_pos.html with terms to compute approximate ephemerides of solar system bodies
+- `gravity_models`
 	- Earth/GOCO05c.txt: Retrieved from https://dataservices.gfz-potsdam.de/icgem/showshort.php?id=escidoc:1504398
 	- Earth/egm96.txt: Retrieved from https://cddis.nasa.gov/926/egm96/getit.html
 	- Earth/ggm02c.txt and Earth/ggm02s.txt: Retrieved from https://www2.csr.utexas.edu/grace/gravity/ggm02/
@@ -24,12 +24,16 @@ Part of the contents of this repository are taken from external sources, which a
 	- Moon/gggrx_1200l_sha.tab: Retrieved from https://pds-geosciences.wustl.edu/grail/grail-l-lgrs-5-rdr-v1/grail_1001/shadr/
 	- Moon/glgm3150.txt and Moon/lpe200.txt: Retrieved from https://pds-geosciences.wustl.edu/lunar/lp-l-rss-5-glgm3_gravity-v1/lp_1201/data/shadr/
 	- Venus/shgj180u.a01: Retrieved from https://pds-geosciences.wustl.edu/mgn/mgn-v-rss-5-gravity-l2-v1/mg_5201/gravity/
+- `quadrature`
+	- Files containing nodes and weights for Gaussian quadrature method
 - `space_weather`
 	- sw19571001.txt: Retrieved from https://celestrak.org/SpaceData/sw19571001.txt
 - `spice_kernels` 
 	- NOE kernels: Retrieved from https://ftp.imcce.fr/pub/ephem/satel/NOE/
-	- All other kernels: Retrieved from https://naif.jpl.nasa.gov/pub/naif/generic_kernels/
+	- All other kernels: Retrieved from https://naif.jpl.nasa.gov/pub/naif/generic_kernels/  
 - `star_catalog_biases`
 	- debias_2018: Retrieved from https://www.sciencedirect.com/science/article/pii/S0019103519305329
+- `station_locations`
+	- station_locations: Files containing Earth-fixed positions and velocities of ground stations (glo.pos, glo.vel, ns_codes.dat: radio telescopes)
 
 
