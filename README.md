@@ -2,6 +2,8 @@
 
 This repository contains the default files that are downloaded when installing the Tudat software. For more details on the project, we refer to the [project website](https://docs.tudat.space/en/latest/) and our [project Github page](https://github.com/tudat-team).
 
+NOTE, when installing the tudat-resources packages conda package (https://anaconda.org/tudat-team/tudat-resources, a required dependency of tudat), a number of additional files that are not under version control (since their size is >100 MB) are downloaded. The complete set of files that is downloaded is contained in the ``resources.tar.gz`` of the corresponding pacakge version here: https://github.com/tudat-team/tudat-resources/releases
+
 Part of the contents of this repository are taken from external sources, which are listed below:
 
 - `atmosphere_tables`
