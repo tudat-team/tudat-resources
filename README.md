@@ -1,8 +1,9 @@
-# Resources
+# tudat resources
 
-This repository contains the default files that are downloaded when installing the Tudat software. For more details on the project, we refer to the [project website](https://docs.tudat.space/en/latest/) and our [project Github page](https://github.com/tudat-team).
+This repository contains the default files that are downloaded when installing the TU Delft Astrodynamics Toolbox (Tudat) software. 
 
-NOTE, when installing the tudat-resources packages conda package (https://anaconda.org/tudat-team/tudat-resources, a required dependency of tudat), a number of additional files that are not under version control (since their size is >100 MB) are downloaded. The complete set of files that is downloaded is contained in the ``resources.tar.gz`` of the corresponding pacakge version here: https://github.com/tudat-team/tudat-resources/releases
+* For more details on the project, we refer to the [project website](https://docs.tudat.space/en/latest/) and our [project Github page](https://github.com/tudat-team).
+* Conda package for this repository are available on [anaconda](anaconda.org/tudat-team/tudat-resources/), which is built through the [tudat-feedstock](https://github.com/tudat-team/tudat-resources-feedstock) on [Azure](https://dev.azure.com/tudat-team/feedstock-builds/_build?definitionId=4)
 
 Part of the contents of this repository are taken from external sources, which are listed below:
 
@@ -39,5 +40,9 @@ Part of the contents of this repository are taken from external sources, which a
 	- debias_2018: Retrieved from https://www.sciencedirect.com/science/article/pii/S0019103519305329
 - `station_locations`
 	- station_locations: Files containing Earth-fixed positions and velocities of ground stations (glo.pos, glo.vel, ns_codes.dat: radio telescopes)
+
+
+NOTE, when installing the tudat-resources conda package (https://anaconda.org/tudat-team/tudat-resources, a required dependency of tudat), a number of additional files that are not under version control (since their size is >100 MB) are downloaded. The complete set of files that is downloaded is contained in the ``resources.tar.gz`` of the corresponding pacakge version here: https://github.com/tudat-team/tudat-resources/releases
+
 
 
