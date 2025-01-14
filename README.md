@@ -32,6 +32,8 @@ Part of the contents of this repository are taken from external sources, which a
 	- sw19571001.txt: Retrieved from https://celestrak.org/SpaceData/sw19571001.txt
 - `spice_kernels` 
 	- NOE kernels: Retrieved from https://ftp.imcce.fr/pub/ephem/satel/NOE/
+ 	- INPOP kernels: Retrieved from https://ftp.imcce.fr/pub/ephem/planets/
+  	- JUICE kernel: Retrieved from https://spiftp.esac.esa.int/data/SPICE/JUICE/kernels/spk/ 
 	- All other kernels: Retrieved from https://naif.jpl.nasa.gov/pub/naif/generic_kernels/  
 - `star_catalog_biases`
 	- debias_2018: Retrieved from https://www.sciencedirect.com/science/article/pii/S0019103519305329
