@@ -10,6 +10,7 @@ Part of the contents of this repository are taken from external sources, which a
 - `atmosphere_tables`
 	- MCD files: created from data in Mars Climate Database (http://www-mars.lmd.jussieu.fr/mars/access.html)
 	- USSA files: created from models in U.S. Atmosphere, (1976). NOAA/NASA/USAF, Washington, DC.
+        - Mars DTM file: file is courtesy of Sean Bruinsma 
 -` earth_deformation`
         - blq files: generated using the service at https://barre.oso.chalmers.se/loading/l.php to compute Earth ground station displacements due to ocean loading
         - Other files: created from Tables 7.3a and 7.3b for the computatuon of corrections to tidal displacement of Earth reference points (IERS 2010 Convenions: chapter 7: https://iers-conventions.obspm.fr/content/chapter7/icc7.pdf)
