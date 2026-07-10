@@ -15,7 +15,7 @@ Part of the contents of this repository are taken from external sources, which a
         - blq files: generated using the service at https://barre.oso.chalmers.se/loading/l.php to compute Earth ground station displacements due to ocean loading
         - Other files: created from Tables 7.3a and 7.3b for the computatuon of corrections to tidal displacement of Earth reference points (IERS 2010 Convenions: chapter 7: https://iers-conventions.obspm.fr/content/chapter7/icc7.pdf)
 - `earth_orientation`
-	- eopc04_14_IAU2000.62-now.txt: Retrieved from https://datacenter.iers.org/versionMetadata.php?eopc04_14_IAU2000.62-now
+	- eopc04_14_IAU2000.62-now.txt: Retrieved from https://datacenter.iers.org/data/224/eopc04_14_IAU2000.62-now.txt
 	- Other files: created from Tables 5.1a for the computation of polar motion correction due to tidal gravitation on non-rigid Earth, Table 5.1b to libration corrections to Earth UT1 and Table 8.2 and 8.3 for ocean tide corrections to polar motion and UT1 (IERS 2010 Convenions: chapter 5: https://iers-conventions.obspm.fr/content/chapter5/icc5.pdf; IERS 2010 Convenions: chapter 8: https://iers-conventions.obspm.fr/content/chapter8/icc8.pdf)
 - `ephemeris`
 	- Files from: https://ssd.jpl.nasa.gov/planets/approx_pos.html with terms to compute approximate ephemerides of solar system bodies
